@@ -1674,15 +1674,17 @@ class TrayIcon:  # 定义系统托盘图标及其菜单控制器
                 pass  # 准备清理失效菜单
             self.overlay._dismiss_tray_menu()  # 关闭失效或旧托盘菜单
 
+        
+
         menu = tk.Toplevel(self.overlay.root)  # 创建菜单顶层窗口
         menu.withdraw()  # 初始隐藏菜单窗口
         menu.title("时间悬浮窗菜单")  # 设置菜单窗口标题
         menu.transient(self.overlay.root)  # 将菜单设为悬浮窗的临时窗口
         menu.overrideredirect(True)  # 移除系统标题栏和边框
         menu.attributes("-topmost", True)  # 始终将菜单置于顶层
-        menu.configure(bg="#CACACAC5")  # 设置菜单背景颜色
+        menu.configure(bg="#CACACA")  # 设置菜单背景颜色
 
-        panel = tk.Frame(menu, bg="#CACACAC5", padx=6, pady=6)  # 创建菜单面板
+        panel = tk.Frame(menu, bg="#CACACA", padx=6, pady=6)  # 创建菜单面板
         panel.pack(fill=tk.BOTH, expand=True)  # 填充整个菜单窗口
 
         def close_menu() -> None:  # 定义关闭托盘菜单函数
@@ -1708,7 +1710,7 @@ class TrayIcon:  # 定义系统托盘图标及其菜单控制器
                 bd=0,  # 设置按钮边框宽度为零
                 padx=8,  # 设置按钮横向内边距
                 pady=3,  # 设置按钮纵向内边距
-                bg="#CACACAC5",  # 设置按钮背景颜色
+                bg="#CACACA",  # 设置按钮背景颜色
                 activebackground="#A3A3A3",  # 设置鼠标悬停背景颜色
                 fg=color or "#000000",  # 设置字体颜色
                 activeforeground=color or "#000000",  # 设置悬停字体颜色
@@ -1721,7 +1723,7 @@ class TrayIcon:  # 定义系统托盘图标及其菜单控制器
                 "<Enter>", lambda _event: button.configure(bg="#B3B0B0")  # 鼠标悬停时更改背景色
             )
             button.bind(  # 为鼠标离开事件绑定处理
-                "<Leave>", lambda _event: button.configure(bg="#CACACAC5")  # 鼠标离开时恢复背景色
+                "<Leave>", lambda _event: button.configure(bg="#CACACA")  # 鼠标离开时恢复背景色
             )
 
         def add_heading(label: str) -> None:  # 定义菜单标题添加函数
@@ -1729,7 +1731,7 @@ class TrayIcon:  # 定义系统托盘图标及其菜单控制器
                 panel,  # 指定标签父容器
                 text=label,  # 设置标题文本
                 anchor=tk.W,  # 靠左对齐标题文本
-                bg="#CACACAC5",  # 设置标题背景颜色
+                bg="#CACACA",  # 设置标题背景颜色
                 fg="#000000",  # 设置标题字体颜色
                 font=(MENU_FONT_FAMILY, MENU_HEADING_FONT_SIZE, "bold"),  # 设置标题字体
                 padx=8,  # 设置标题横向内边距
